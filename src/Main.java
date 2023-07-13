@@ -20,8 +20,8 @@ public class Main {
         }
 
 //      Map.Entryインターフェースを使用してキー(元素記号)と値(元素名)を取り出す
-        for (Map.Entry<String, String> entry1 : elementNameMap.entrySet()) {
-            System.out.println("元素記号：" + entry1.getKey() + "　元素名：" + entry1.getValue());
+        for (Map.Entry<String, String> entry : elementNameMap.entrySet()) {
+            System.out.println("元素記号：" + entry.getKey() + "　元素名：" + entry.getValue());
         }
 
         System.out.println("---------------ここからMapインターフェース実装クラスの変更による処理の違いを見てみようの回-----------------");
@@ -35,8 +35,8 @@ public class Main {
         elementMap.put(4, "Be");
 
 //      キーから値を検索して標準出力
-        for (Integer atomicNumberA: elementMap.keySet()) {
-            System.out.println("原子番号：" + atomicNumberA + "　元素記号：" + elementMap.get(atomicNumberA));
+        for (Integer atomicNumber: elementMap.keySet()) {
+            System.out.println("原子番号：" + atomicNumber + "　元素記号：" + elementMap.get(atomicNumber));
         }
 
 /*
@@ -57,8 +57,8 @@ public class Main {
         elementMap.put(120, null);
 
 //      HashMap、TreeMap、LinkedHashMapはnull値を複数許容
-        for (Map.Entry<Integer, String> entry2 : elementMap.entrySet()) {
-            System.out.println("原子番号：" + entry2.getKey() + "　元素記号：" + entry2.getValue());
+        for (Map.Entry<Integer, String> entry : elementMap.entrySet()) {
+            System.out.println("原子番号：" + entry.getKey() + "　元素記号：" + entry.getValue());
         }
 
         System.out.println("---------------例外処理1-----------------");
@@ -68,8 +68,8 @@ public class Main {
 */
         try {
             elementMap.put(null, "Null1だょ");
-            for (Integer atomicNumberB: elementMap.keySet()) {
-                System.out.println("原子番号：" + atomicNumberB + "　元素記号：" + elementMap.get(atomicNumberB));
+            for (Integer atomicNumber: elementMap.keySet()) {
+                System.out.println("原子番号：" + atomicNumber + "　元素記号：" + elementMap.get(atomicNumber));
             }
         } catch (NullPointerException e) {
             System.out.println("ぬるぽ1");
@@ -85,9 +85,9 @@ public class Main {
 */
         try {
             elementMap.put(null, "Null2だょ");
-            for (Map.Entry<Integer, String> entry3 : elementMap.entrySet()) {
-                if (entry3.getKey() != null) {
-                    System.out.println("原子番号：" + entry3.getKey() + "　元素記号：" + entry3.getValue());
+            for (Map.Entry<Integer, String> entry : elementMap.entrySet()) {
+                if (entry.getKey() != null) {
+                    System.out.println("原子番号：" + entry.getKey() + "　元素記号：" + entry.getValue());
                 } else {
                     throw new NullPointerException();
                 }
@@ -106,11 +106,11 @@ public class Main {
 */
         try {
             elementMap.put(null, "Null3だょ");
-            for (Map.Entry<Integer, String> entry4 : elementMap.entrySet()) {
-                if (entry4.getKey() == null) {
+            for (Map.Entry<Integer, String> entry : elementMap.entrySet()) {
+                if (entry.getKey() == null) {
                     continue;
                 }
-                System.out.println("原子番号：" + entry4.getKey() + "　元素記号：" + entry4.getValue());
+                System.out.println("原子番号：" + entry.getKey() + "　元素記号：" + entry.getValue());
             }
         } catch (NullPointerException e) {
             System.out.println("ぬるぽ3");
